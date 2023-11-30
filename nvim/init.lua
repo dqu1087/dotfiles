@@ -84,6 +84,7 @@ require("telescope").load_extension("fzf")
 local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<Leader>sf", builtin.find_files)
+vim.keymap.set("n", "<Leader>sb", builtin.buffers)
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
