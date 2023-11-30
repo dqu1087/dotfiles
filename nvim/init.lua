@@ -53,6 +53,18 @@ require("lazy").setup({
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip"
     }
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {}
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+    end
   }
 })
 
