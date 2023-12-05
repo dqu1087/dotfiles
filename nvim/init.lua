@@ -85,6 +85,7 @@ local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<Leader>sf", builtin.find_files)
 vim.keymap.set("n", "<Leader>sb", builtin.buffers)
+vim.keymap.set("n", "gr", builtin.lsp_references)
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -127,7 +128,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts);
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, opts);
   end
 })
